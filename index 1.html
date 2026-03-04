@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xochitlán - Restaurante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de color */
+        :root {
+            --bg-dark: #2c2c2e;
+            --bg-darker: #222224;
+            --text-light: #e0e0e0;
+            --text-white: #ffffff;
+            --color-pink: #d141b4;
+            --color-orange: #e56b30;
+            --color-yellow: #e4c467;
+            --color-red: #d92b2b;
+            --color-nav-hover: #ffffff;
+        }
+
+        /* Estilos Globales */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .text-center { text-align: center; }
+        .text-italic { font-style: italic; }
+
+        /* Navegación */
+        header {
+            background-color: var(--bg-darker);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--text-white);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #aaa;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--text-white);
+            border-bottom: 2px solid var(--color-red);
+        }
+
+        /* Banner e Inicio */
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: url('https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2000&auto=format&fit=crop') center/cover;
+        }
+
+        .section-inicio {
+            padding: 60px 20px;
+        }
+
+        .title-pink {
+            color: var(--color-pink);
+            font-size: 48px;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover { opacity: 0.9; }
+        .btn-pink { background-color: var(--color-pink); }
+        .btn-red { background-color: var(--color-red); border-radius: 4px; }
+
+        /* Separador */
+        hr.divider {
+            border: 0;
+            height: 1px;
+            background: #555;
+            margin: 40px auto;
+            width: 80%;
+        }
+
+        /* Secciones a dos columnas */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .img-fluid {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .title-orange { color: var(--color-orange); font-size: 32px;}
+        .title-yellow { color: var(--color-yellow); font-size: 32px;}
+        .title-mixed { font-size: 36px; color: var(--color-pink); }
+        .title-mixed span { color: var(--color-yellow); }
+
+        /* Reservaciones */
+        .reservaciones-box {
+            border: 1px solid #444;
+            padding: 40px;
+            border-radius: 4px;
+            background-color: var(--bg-darker);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .fb { background-color: #1877f2; }
+        .ig { background-color: #e4405f; }
+        .wa { background-color: #25d366; }
+
+        /* Esencia */
+        .esencia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .esencia-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .esencia-text-box {
+            background-color: #333335;
+            padding: 30px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+
+        .logo-large {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #444;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">XOCHITLAN</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="active">INICIO</a></li>
+                <li><a href="#carta">NUESTRA CARTA</a></li>
+                <li><a href="#historia">NUESTRA HISTORIA</a></li>
+                <li><a href="#reservaciones">RESERVACIONES</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner"></div>
+
+    <section id="inicio" class="container text-center section-inicio">
+        <h1 class="title-pink">Bienvenido a Xochitlán</h1>
+        <p class="text-italic" style="max-width: 900px; margin: 0 auto;">
+            Xochitlan nació del deseo de crear un espacio donde la memoria, el sabor y la tradición se encontraran en el mismo lugar. Un espacio donde cada plato contara una historia, donde cada ingrediente fuera un puente que nos llevara de regreso a nuestra herencia mesoamericana. En un mundo donde la rapidez eclipsa lo esencial, decidimos detenernos, mirar hacia atrás y rescatar los rituales culinarios que han alimentado a generaciones. Aquí es donde comienza nuestro viaje, únete a nosotros.
+        </p>
+        <button class="btn btn-pink">Explora nuestro menú</button>
+    </section>
+
+    <hr class="divider">
+
+    <section id="historia" class="container text-center">
+        <h2 class="title-pink">Xochitlán: Donde la tradición florece</h2>
+        <p class="text-italic" style="max-width: 900px; margin: 0 auto;">
+            Nuestra historia comenzó con un profundo deseo: crear un espacio donde la memoria, el sabor y la tradición se unieran. En Xochitlán, cada platillo cuenta una historia, cada ingrediente es un puente a nuestra rica herencia mesoamericana. Nos propusimos rescatar los rituales culinarios ancestrales, honrando nuestras raíces a través de sabores auténticos que han alimentado a generaciones.
+        </p>
+
+        <div class="grid-2 text-left" style="margin-top: 60px;">
+            <div>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Comida tradicional" class="img-fluid">
+            </div>
+            <div>
+                <h3 class="title-orange">El alma de nuestra cocina</h3>
+                <p class="text-italic">
+                    La chispa para crear Xochitlán se encendió con un sentimiento de calidez inigualable. Queríamos un lugar acogedor donde nuestros comensales pudieran disfrutar de una buena comida y, al mismo tiempo, conectar con el profundo valor cultural de las civilizaciones prehispánicas. Un sitio donde cada visita fuera un reencuentro con nuestras raíces, celebrando la riqueza...
+                </p>
+                <button class="btn btn-red">Reserva tu mesa</button>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="container text-center">
+        <h2 class="title-mixed">El alma de Xochitlán: <span>Un viaje culinario a nuestras raíces</span></h2>
+        <p class="text-italic" style="max-width: 950px; margin: 0 auto;">
+            En Xochitlan, cada platillo es una historia, un puente que nos lleva de regreso a nuestra herencia mesoamericana. Exploramos los sabores que nos dieron identidad: el maíz nixtamalizado con paciencia, el cacao que durante siglos fue considerado alimento de dioses, las semillas tostadas que perfuman el aire, las hierbas medicinales, los chiles de mil tonalidades y los frutos que han coloreado nuestras tierras desde tiempos antiguos. Rescatamos técnicas tradicionales como el metate, el comal y la cocción lenta, combinándolas con elementos contemporáneos que permiten presentar cada platillo como una experiencia visual y sensorial. Creemos que la cocina no solo se come: se escucha, se mira, se huele, se siente y se recuerda.
+        </p>
+
+        <div style="margin-top: 50px;">
+            <h3 class="title-orange">Nuestra carta: Un tesoro de sabores auténticos</h3>
+            <p class="text-italic" style="max-width: 700px; margin: 0 auto;">
+                Prepárate para despertar tu hambre y tu deseo por descubrir. Para el turista, una invitación a explorar el sabor de nuestra tierra; para el local, un reencuentro nostálgico con la comida de nuestros padres y abuelos, hecha con la calidad, el cariño, la calidez y la paciencia que nos distinguen.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="esencia" class="container">
+        <div class="esencia-grid">
+            <div class="esencia-left">
+                <div class="esencia-text-box">
+                    <h3 class="title-yellow">Nuestra esencia</h3>
+                    <p class="text-italic" style="font-size: 14px;">
+                        Somos un equipo dedicado a crear experiencias únicas. En Xochitlan, cada platillo es una oda a nuestras raíces. Nos dedicamos a preservar y reinventar los sabores ancestrales de México, ofreciendo una experiencia culinaria que deleita el paladar y nutre el alma. Con profundo respeto por la calidad y un deseo auténtico de superar tus expectativas, te invitamos a un viaje gastronómico inolvidable.
+                    </p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1596645027581-22961e6d724a?q=80&w=800&auto=format&fit=crop" alt="Ingredientes" class="img-fluid" style="height: 100%; object-fit: cover;">
+            </div>
+            <div class="logo-large">
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=600&auto=format&fit=crop" alt="Logo Floral" style="width: 70%; border-radius: 50%; margin-bottom: 20px;">
+                <h2 style="color: #e4c467; letter-spacing: 5px; font-size: 36px;">XOCHITLÁN</h2>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="reservaciones" class="container reservaciones-box">
+        <div class="grid-2" style="margin-top: 0;">
+            <div style="padding-right: 20px; border-right: 1px solid #555;">
+                <p>
+                    Para asegurar tu mesa en Xochitlan, por favor, completa el siguiente formulario. Nos es importante conocer detalles como tu nombre, correo electrónico, el motivo de tu visita (celebración, aniversario, cumpleaños, cita, etc.), la cantidad de personas y si tienes alguna preferencia de ubicación de mesa. No olvides indicarnos la fecha y hora deseadas.
+                </p>
+                <button class="btn btn-red" style="margin-top: 30px;">Reserva Aquí</button>
+            </div>
+            <div style="padding-left: 20px;">
+                <h3 style="color: #ccc; font-size: 24px;">¿Dónde nos encuentras?</h3>
+                <p>Villahermosa, Tabasco.</p>
+                <p class="text-italic" style="font-size: 14px; color: #aaa;">
+                    Xochitlan nació del deseo de crear un espacio donde la memoria, el sabor y la tradición se encontraron en el mismo lugar. Un espacio donde cada plato contara una historia...
+                </p>
+                <p>Teléfono: [81 0000 0000]</p>
+                
+                <h3 style="color: #ccc; font-size: 24px; margin-top: 30px;">Detalles importantes para tu visita</h3>
+                <p class="text-italic" style="font-size: 14px; color: #aaa;">
+                    Para asegurar que tu experiencia sea perfecta en Xochitlan, te pedimos amablemente que nos notifiques cualquier cambio en tu hora de llegada o si necesitas añadir algún comensal extra; esto nos permitirá ajustar tu mesa y ofrecerte el mejor servicio. Si deseas alguna decoración especial para tu celebración, por favor, menciónalo al hacer tu reservación. Te esperamos para crear momentos inolvidables.
+                </p>
+
+                <div class="social-icons">
+                    <a href="#" class="social-icon fb">f</a>
+                    <a href="#" class="social-icon ig">ig</a>
+                    <a href="#" class="social-icon wa">w</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JS simple para manejar la clase 'active' en el menú de navegación al hacer clic
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
